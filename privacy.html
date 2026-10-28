@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Privacy Policy | Aura Launcher</title>
+    <meta
+        name="description"
+        content="Learn how Aura Launcher handles information, authentication, updates, and third-party services."
+    >
+    <meta name="theme-color" content="#0b0f0d">
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --background: #0b0f0d;
+            --surface: #111815;
+            --surface-light: #17211b;
+            --border: #26372c;
+            --text: #edf5ef;
+            --muted: #a2b1a6;
+            --accent: #36d681;
+            --accent-dark: #1ca65c;
+            --warning: #f0c674;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 30px;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    ellipse at top,
+                    rgba(31, 112, 66, 0.17),
+                    transparent 48%
+                ),
+                var(--background);
+            color: var(--text);
+            font-family: Inter, "Segoe UI", Arial, sans-serif;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .topbar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px clamp(20px, 6vw, 90px);
+            border-bottom: 1px solid var(--border);
+            background: rgba(11, 15, 13, 0.85);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 750;
+            letter-spacing: -0.4px;
+        }
+
+        .brand-mark {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #3ce68b, #16884c);
+            color: #06150b;
+            font-size: 1.2rem;
+            font-weight: 900;
+            box-shadow: 0 0 25px rgba(54, 214, 129, 0.13);
+        }
+
+        .back-link {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .container {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 65px 0 80px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            content: "";
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            font-size: clamp(2.3rem, 7vw, 4rem);
+            line-height: 1.12;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        .intro {
+            max-width: 720px;
+            color: var(--muted);
+            font-size: 1.06rem;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            margin: 25px 0 35px;
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .notice {
+            margin-bottom: 42px;
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 10px;
+            background: var(--surface);
+            color: var(--muted);
+            font-size: 0.91rem;
+        }
+
+        .notice strong {
+            color: var(--text);
+        }
+
+        .content {
+            padding: 34px clamp(20px, 5vw, 42px);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: rgba(17, 24, 21, 0.92);
+        }
+
+        section {
+            margin-bottom: 34px;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            margin-bottom: 12px;
+            color: var(--text);
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+
+        p {
+            margin-bottom: 12px;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        ul {
+            display: grid;
+            gap: 9px;
+            margin: 12px 0 12px 22px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        li::marker {
+            color: var(--accent);
+        }
+
+        .contact-card {
+            margin-top: 16px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface-light);
+        }
+
+        .contact-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 28px;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .topbar {
+                padding: 16px 20px;
+            }
+
+            .container {
+                padding-top: 42px;
+            }
+
+            h1 {
+                letter-spacing: -1.2px;
+            }
+
+            .content {
+                padding: 24px 20px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .topbar,
+            .footer {
+                display: none;
+            }
+
+            .container {
+                width: 100%;
+                padding: 0;
+            }
+
+            .content,
+            .notice {
+                border-color: #ccc;
+                background: white;
+            }
+
+            h1, h2, p, li, .intro, .meta, .notice {
+                color: black;
+            }
+
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html" aria-label="Aura Launcher home">
+            <span class="brand-mark" aria-hidden="true">A</span>
+            <span>Aura Launcher</span>
+        </a>
+
+        <a class="back-link" href="index.html">
+            ← Back to Home
+        </a>
+    </header>
+
+    <main class="container">
+        <div class="eyebrow">Legal &amp; Transparency</div>
+
+        <h1>Your privacy.<br><span>Your control.</span></h1>
+
+        <p class="intro">
+            This Privacy Policy explains how Aura Launcher may handle
+            information when you use the application, connect an account,
+            manage game installations, or access third-party services.
+        </p>
+
+        <div class="meta">
+            <span>Last updated: October 28, 2026</span>
+            <span>Application: Aura Launcher</span>
+        </div>
+
+        <div class="notice">
+            <strong>Before publishing:</strong>
+            Verify this policy against the application's actual code,
+            network requests, analytics, logs, authentication flow, and
+            update configuration. Replace the contact placeholder below.
+            Do not publish statements that have not been confirmed.
+        </div>
+
+        <div class="content">
+            <section>
+                <h2>1. About Aura Launcher</h2>
+                <p>
+                    Aura Launcher is a desktop application designed to help
+                    users manage supported Minecraft clients and related
+                    game-launching tasks.
+                </p>
+                <p>
+                    In this policy, "Aura Launcher", "we", and "our" refer
+                    to the people or organization responsible for distributing
+                    the application. "You" refers to anyone using it.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. Information the Application May Process</h2>
+                <p>
+                    Depending on the features you use and the application's
+                    implementation, Aura Launcher may process information
+                    such as:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Local application information:</strong>
+                        settings, selected installation directories,
+                        client configuration, and application preferences.
+                    </li>
+                    <li>
+                        <strong>Device and environment information:</strong>
+                        operating system details, Java installation paths,
+                        and information needed to launch supported clients.
+                    </li>
+                    <li>
+                        <strong>Authentication information:</strong>
+                        account-related tokens or session information handled
+                        by the authentication flow, if you choose to sign in.
+                    </li>
+                    <li>
+                        <strong>Diagnostic information:</strong>
+                        error details or logs generated when a launch,
+                        installation, update, or other operation fails.
+                    </li>
+                </ul>
+                <p>
+                    This list describes possible categories, not a claim that
+                    every category is collected or transmitted. The actual
+                    information processed depends on the version and features
+                    you use.
+                </p>
+            </section>
+
+            <section>
+                <h2>3. How Information Is Used</h2>
+                <p>
+                    Information processed by the application may be used
+                    where necessary to:
+                </p>
+                <ul>
+                    <li>Run the launcher and remember your settings.</li>
+                    <li>Manage supported game clients and local files.</li>
+                    <li>Complete authentication that you initiate.</li>
+                    <li>Check for application updates and retrieve configuration.</li>
+                    <li>Identify and troubleshoot technical errors.</li>
+                    <li>Protect the application and its supported services.</li>
+                </ul>
+                <p>
+                    Any additional use, including analytics or advertising,
+                    should be described here if it is implemented.
+                </p>
+            </section>
+
+            <section>
+                <h2>4. Local Files and Game Directories</h2>
+                <p>
+                    Features such as client installation, repair, deletion,
+                    and game launching may read or modify files in the
+                    directories you select or that the application uses.
+                </p>
+                <p>
+                    Review file-operation prompts carefully and maintain
+                    backups of important game data. The exact files accessed
+                    depend on the features you use and your configuration.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Microsoft Authentication</h2>
+                <p>
+                    If you use a Microsoft sign-in feature, authentication
+                    may involve Microsoft and other services required for
+                    the relevant Minecraft account or game entitlement.
+                    Those services operate under their own privacy policies
+                    and terms.
+                </p>
+                <p>
+                    Do not enter your Microsoft password into an unofficial
+                    form. Before publishing this section, verify the actual
+                    authentication flow, token storage, permissions requested,
+                    and whether any account data is transmitted to the
+                    launcher developer.
+                </p>
+            </section>
+
+            <section>
+                <h2>6. Updates and Third-Party Services</h2>
+                <p>
+                    Aura Launcher may contact third-party services to retrieve
+                    releases, application update metadata, client configuration,
+                    or files required by its features.
+                </p>
+                <p>
+                    For example, if configured in your installed version,
+                    GitHub-hosted repositories or releases may be used to
+                    distribute updates or client configuration. Requests to
+                    those services may expose normal connection information,
+                    such as your IP address, to the relevant service provider.
+                </p>
+                <p>
+                    Third-party services have their own data practices.
+                    Review their policies before using integrations that
+                    require an account or transmit information.
+                </p>
+            </section>
+
+            <section>
+                <h2>7. Data Sharing</h2>
+                <p>
+                    This section must reflect the application's verified
+                    behavior. Document whether the application sends data
+                    to the developer, analytics providers, crash-reporting
+                    services, advertising providers, or other recipients.
+                </p>
+                <p>
+                    If the application does not intentionally transmit
+                    particular categories of personal information to the
+                    developer, state that only after confirming it through
+                    a review of the code and network behavior.
+                </p>
+            </section>
+
+            <section>
+                <h2>8. Data Storage and Security</h2>
+                <p>
+                    Application settings, configuration, logs, and
+                    authentication-related data may be stored locally or
+                    handled by integrated services, depending on the
+                    implementation.
+                </p>
+                <p>
+                    The final published policy should specify where relevant
+                    data is stored, how long it is retained, how credentials
+                    and tokens are protected, and what steps users can take
+                    to remove local data.
+                </p>
+                <p>
+                    No software or transmission method can be guaranteed to
+                    be completely secure.
+                </p>
+            </section>
+
+            <section>
+                <h2>9. Data Retention and Deletion</h2>
+                <p>
+                    The retention period for local files, logs, account
+                    information, and any remotely stored data depends on
+                    how each feature is implemented.
+                </p>
+                <p>
+                    To request deletion of information held by the developer,
+                    use the contact details below. This request cannot
+                    directly remove data held independently by Microsoft,
+                    GitHub, or another third-party service.
+                </p>
+            </section>
+
+            <section>
+                <h2>10. Children's Privacy</h2>
+                <p>
+                    Aura Launcher is not intended to knowingly collect
+                    personal information from children in violation of
+                    applicable law. If you believe a child has provided
+                    personal information to a service operated by the
+                    developer, contact us so the matter can be reviewed.
+                </p>
+            </section>
+
+            <section>
+                <h2>11. Your Choices and Rights</h2>
+                <p>
+                    Depending on where you live, you may have rights to
+                    access, correct, delete, or otherwise control certain
+                    personal information.
+                </p>
+                <p>
+                    You can also choose whether to use optional features
+                    such as account sign-in. Available choices may be
+                    limited by technical requirements or legal obligations.
+                    Contact us for questions about applicable rights.
+                </p>
+            </section>
+
+            <section>
+                <h2>12. Changes to This Policy</h2>
+                <p>
+                    This policy may be updated when the application changes
+                    or when legal requirements change. The latest revision
+                    date will be displayed at the top of this page.
+                </p>
+                <p>
+                    For significant changes, provide an appropriate notice
+                    where required by applicable law.
+                </p>
+            </section>
+
+            <section>
+                <h2>13. Contact</h2>
+                <p>
+                    For privacy questions, data requests, or concerns about
+                    this policy, contact the Aura Launcher maintainer.
+                </p>
+
+                <div class="contact-card">
+                    <p><strong>Aura Launcher — Privacy Contact</strong></p>
+                    <p>
+                        Email:
+                        <a href="mailto:YOUR_PRIVACY_EMAIL@example.com">
+                            YOUR_PRIVACY_EMAIL@example.com
+                        </a>
+                    </p>
+                    <p>
+                        Replace this placeholder with an email address you
+                        actively monitor before publishing.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <span>© 2026 Aura Launcher</span>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="Privacy.html" aria-current="page">Privacy Policy</a>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
